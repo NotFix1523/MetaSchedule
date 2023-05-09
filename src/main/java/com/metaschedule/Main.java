@@ -29,7 +29,7 @@ public class Main {
             System.out.println("  3) Export your user.");
             System.out.println("  0) Exit.");
             System.out.print("Select an option between 0 and 3: ");
-
+            opt = scanner.nextInt();
 
             switch (opt) {
                 case 0 -> {
