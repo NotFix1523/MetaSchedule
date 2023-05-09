@@ -40,3 +40,9 @@ Thumbs.db
 ##########################
 .gradle
 build
+
+# Test files #
+##############
+src/main/java/com/metaschedule/Cuaderno.java
+src/main/java/com/metaschedule/Persona.java
+src/main/java/com/metaschedule/Hoja.java

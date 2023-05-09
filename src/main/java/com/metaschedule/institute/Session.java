@@ -13,21 +13,10 @@ public class Session {
         this.day = day;
     }
 
-    //Methods
-    @Override
-    public String toString() {
-        return "Session{" +
-                "classroom='" + classroom + '\'' +
-                ", init_hour=" + init_hour +
-                ", end_hour=" + end_hour +
-                ", day=" + day +
-                '}';
-    }
-
-    //Setters & Getters
     public String getClassroom() {
         return classroom;
     }
+
     public void setClassroom(String classroom) {
         this.classroom = classroom;
     }
@@ -35,6 +24,7 @@ public class Session {
     public int getInit_hour() {
         return init_hour;
     }
+
     public void setInit_hour(int init_hour) {
         this.init_hour = init_hour;
     }
@@ -42,6 +32,7 @@ public class Session {
     public int getEnd_hour() {
         return end_hour;
     }
+
     public void setEnd_hour(int end_hour) {
         this.end_hour = end_hour;
     }
@@ -49,6 +40,7 @@ public class Session {
     public int getDay() {
         return day;
     }
+
     public void setDay(int day) {
         this.day = day;
     }

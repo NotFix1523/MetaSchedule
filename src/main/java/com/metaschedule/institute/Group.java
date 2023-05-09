@@ -43,29 +43,19 @@ public class Group {
             System.out.print("Enter a number between 0 and 24: ");
             int end_hour = scanner.nextInt();
 
-            sessions.add(new Session(classroom,init_hour,end_hour,day));
-
-            System.out.println("\nNew session added");
+            Session session = new Session(classroom,init_hour,end_hour,day);
+            sessions.add(session);
 
             System.out.print("\nDo you want to add another session? y/n: ");
             opt = scanner.next().charAt(0);
             scanner.nextLine();
         } while (opt == 'y');
     }
-    @Override
-    public String toString() {
-        return "Group{" +
-                "id='" + id + '\'' +
-                ", language='" + language + '\'' +
-                ", teacher=" + teacher +
-                ", sessions=" + sessions +
-                '}';
-    }
 
-    //Setters & Getters
     public String getId() {
         return id;
     }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -73,6 +63,7 @@ public class Group {
     public String getLanguage() {
         return language;
     }
+
     public void setLanguage(String language) {
         this.language = language;
     }
@@ -80,6 +71,7 @@ public class Group {
     public Teacher getTeacher() {
         return teacher;
     }
+
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
@@ -87,6 +79,7 @@ public class Group {
     public ArrayList<Session> getSessions() {
         return sessions;
     }
+
     public void setSessions(ArrayList<Session> sessions) {
         this.sessions = sessions;
     }

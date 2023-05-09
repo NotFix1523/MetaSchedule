@@ -1,13 +1,11 @@
 package com.metaschedule.roles;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.metaschedule.institute.Group;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,6 +13,11 @@ public class User {
     //Attributes
     Scanner scanner = new Scanner(System.in);
     ArrayList<Group> groups = new ArrayList<>();
+
+    //Constructor
+    public User() {
+
+    }
 
     //Methods
     public void addGroup(){
@@ -30,40 +33,25 @@ public class User {
         System.out.print("Enter teacher's name: ");
         Teacher teacher = new Teacher(scanner.nextLine());
 
-        groups.add(new Group(name,language,teacher));
+        Group group = new Group(name,language,teacher);
+        groups.add(group);
     }
-    public void importUser(Path path){
-        String jsonString;
-        try {
-            byte[] jsonData = Files.readAllBytes(path);
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.readValue(jsonData,User.class);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+    public static void importUser(){
     }
     public void exportUser() {
-        ObjectMapper mapper = new ObjectMapper();
-
-        try {
-            mapper.writeValue(new File("User.json"),toString());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    @Override
-    public String toString() {
-        return "User{" +
-                "groups=" + groups +
-                '}';
     }
 
-    //Setters & Getters
     public ArrayList<Group> getGroups() {
         return groups;
     }
+
     public void setGroups(ArrayList<Group> groups) {
         this.groups = groups;
+    }
+
+    @Override
+    public String toString() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 }
