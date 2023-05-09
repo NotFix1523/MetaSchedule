@@ -1,10 +1,13 @@
 package com.metaschedule.roles;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.metaschedule.institute.Group;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -29,7 +32,15 @@ public class User {
 
         groups.add(new Group(name,language,teacher));
     }
-    public void importUser(){
+    public void importUser(Path path){
+        String jsonString;
+        try {
+            byte[] jsonData = Files.readAllBytes(path);
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.readValue(jsonData,User.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
     public void exportUser() {

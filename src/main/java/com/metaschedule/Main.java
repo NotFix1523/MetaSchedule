@@ -3,6 +3,8 @@ package com.metaschedule;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.metaschedule.roles.User;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Main {
@@ -40,7 +42,7 @@ public class Main {
                     System.out.println("\nGroup created.");
                 }
                 case 2 -> {
-                    user.importUser();
+                    user.importUser(Paths.get("User.json"));
                     System.out.println("\nUser imported successfully.");
                 }
                 case 3 -> {
